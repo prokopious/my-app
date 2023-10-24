@@ -2,7 +2,11 @@ package util;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import util.TestUtil;
 
+import java.net.MalformedURLException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
+import java.util.Map;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -24,17 +28,31 @@ public class TestBase {
 
         try {
             if (os.contains("linux")) {
+            	
                 // Setup for Linux and Docker
                 ChromeOptions options = new ChromeOptions();
                 options.addArguments("--headless");
                 options.addArguments("--disable-gpu");
                 options.addArguments("--window-size=1920,1200");
+                int timeoutInSeconds = 10;
+                options.setCapability("se:timeout", Map.of("script", timeoutInSeconds * 1000));
 
-                // Define URL of the remote WebDriver (your Docker container with Selenium standalone server)
-                URL remoteAddress = new URL("http://172.31.26.241:4444/wd/hub"); // Adjust the URL if needed
+                try {
+                    // Define URL of the remote WebDriver (your Docker container with Selenium standalone server)
+                    URI uri = new URI("http://172.31.26.241:4444/wd/hub");
+                    // Convert URI to URL
+                    URL remoteAddress = uri.toURL();
 
-                // Use RemoteWebDriver for Docker setup
-                driver = new RemoteWebDriver(remoteAddress, options);
+                    // Use RemoteWebDriver for Docker setup
+                    driver = new RemoteWebDriver(remoteAddress, options);
+                } catch (URISyntaxException e) {
+                    // Handle the exception of a malformed URI
+                    e.printStackTrace();
+                } catch (MalformedURLException e) {
+                    // Handle the exception of a malformed URL
+                    e.printStackTrace();
+                }
+      
             } else {
                 // Setup for local execution
                 String projectPath = System.getProperty("user.dir");
