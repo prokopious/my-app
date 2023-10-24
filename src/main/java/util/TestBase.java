@@ -31,7 +31,7 @@ public class TestBase {
                 options.addArguments("--window-size=1920,1200");
 
                 // Define URL of the remote WebDriver (your Docker container with Selenium standalone server)
-                URL remoteAddress = new URL("http://localhost:4444/wd/hub"); // Adjust the URL if needed
+                URL remoteAddress = new URL("http://172.31.26.241:4444/wd/hub"); // Adjust the URL if needed
 
                 // Use RemoteWebDriver for Docker setup
                 driver = new RemoteWebDriver(remoteAddress, options);
