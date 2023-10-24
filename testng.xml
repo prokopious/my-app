@@ -1,0 +1,8 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="My Test Suite">
+    <test name="My Test">
+        <packages>
+            <package name="suite1*"/> <!-- Replace with your actual package name where your test classes are -->
+        </packages>
+    </test>
+</suite>

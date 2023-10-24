@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2023-10-23T22:34:50 EDT" name="Surefire suite" finished-at="2023-10-23T22:34:55 EDT" duration-ms="4873">
+    <groups>
+    </groups>
+    <test started-at="2023-10-23T22:34:50 EDT" name="Surefire test" finished-at="2023-10-23T22:34:55 EDT" duration-ms="4873">
+      <class name="suite1.SampleSiteTest">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:suite1.SampleSiteTest@6dbb137d]" started-at="2023-10-23T22:34:50 EDT" name="setUp" finished-at="2023-10-23T22:34:51 EDT" duration-ms="1189" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testSiteHeader2()[pri:0, instance:suite1.SampleSiteTest@6dbb137d]" started-at="2023-10-23T22:34:51 EDT" name="testSiteHeader2" finished-at="2023-10-23T22:34:55 EDT" duration-ms="3523" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testSiteHeader2 -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:suite1.SampleSiteTest@6dbb137d]" started-at="2023-10-23T22:34:55 EDT" name="tearDown" finished-at="2023-10-23T22:34:55 EDT" duration-ms="134" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- suite1.SampleSiteTest -->
+    </test> <!-- Surefire test -->
+  </suite> <!-- Surefire suite -->
+</testng-results>
