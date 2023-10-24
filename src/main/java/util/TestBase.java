@@ -1,9 +1,13 @@
 package util;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import util.TestUtil;
+
+import java.net.URL;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.*;
 
 public class TestBase {
@@ -14,21 +18,41 @@ public class TestBase {
     @BeforeMethod
     public void setUp() {
     	
-    	  String projectPath = System.getProperty("user.dir"); // This gets us the project's root folder
-          System.setProperty("webdriver.chrome.driver", projectPath + "/chromedriver.exe"); // This sets the location of the driver
+        WebDriver driver = null;
+        TestUtil testUtil;
+        String os = System.getProperty("os.name").toLowerCase(); // Identify OS
 
-          // Now you can initialize your ChromeDriver without WebDriverManager
-          ChromeOptions options = new ChromeOptions();
-          options.addArguments("--headless");
-          options.addArguments("--disable-gpu"); // If the machine is Windows, this flag is needed
-          options.addArguments("--window-size=1920,1200");
+        try {
+            if (os.contains("linux")) {
+                // Setup for Linux and Docker
+                ChromeOptions options = new ChromeOptions();
+                options.addArguments("--headless");
+                options.addArguments("--disable-gpu");
+                options.addArguments("--window-size=1920,1200");
 
-          try {
-              driver = new ChromeDriver(options); // This should initialize the 'driver'
-          } catch (Exception e) {
-              e.printStackTrace(); // Log the exception, it will help you understand the possible issue during initialization
-              return; // If exception occurs, the driver would be null. Handle this appropriately based on your test workflow.
-          }
+                // Define URL of the remote WebDriver (your Docker container with Selenium standalone server)
+                URL remoteAddress = new URL("http://localhost:4444/wd/hub"); // Adjust the URL if needed
+
+                // Use RemoteWebDriver for Docker setup
+                driver = new RemoteWebDriver(remoteAddress, options);
+            } else {
+                // Setup for local execution
+                String projectPath = System.getProperty("user.dir");
+                System.setProperty("webdriver.chrome.driver", projectPath + "/chromedriver.exe");
+
+                ChromeOptions options = new ChromeOptions();
+                options.addArguments("--headless");
+                options.addArguments("--disable-gpu");
+                options.addArguments("--window-size=1920,1200");
+
+                driver = new ChromeDriver(options);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            // If an exception occurs, you should handle it based on your test workflow.
+            // You might want to fail the test, log the error, or have other handling logic.
+            return;
+        }
           testUtil = new TestUtil(driver);
     }
 
