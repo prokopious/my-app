@@ -13,11 +13,11 @@ public class SampleSiteTest extends TestBase {
     @Test
     public void testSiteHeader2() throws InterruptedException {
 
-//        driver.get("http://example.com");
-//        testUtil.awaitLoadDOM(20);
-//        WebElement header = testUtil.getElement("//h1", null, 20);
-//        System.out.println(header.getText());
-//        testUtil.setHardWait(3000);
+        driver.get("http://example.com");
+        testUtil.awaitLoadDOM(20);
+        WebElement header = testUtil.getElement("//h1", null, 20);
+        System.out.println(header.getText());
+        testUtil.setHardWait(3000);
      
 
         // Assert that the header text is as expected.
