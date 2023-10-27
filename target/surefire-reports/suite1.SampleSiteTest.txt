@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: suite1.SampleSiteTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 1.986 s <<< FAILURE! -- in suite1.SampleSiteTest
-suite1.SampleSiteTest.testSiteHeader2 -- Time elapsed: 0.001 s <<< FAILURE!
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 1.626 s <<< FAILURE! -- in suite1.SampleSiteTest
+suite1.SampleSiteTest.testSiteHeader2 -- Time elapsed: 0 s <<< FAILURE!
 java.lang.NullPointerException: Cannot invoke "org.openqa.selenium.WebDriver.get(String)" because "this.driver" is null
 	at suite1.SampleSiteTest.testSiteHeader2(SampleSiteTest.java:13)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
