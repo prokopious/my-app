@@ -2,16 +2,16 @@
 <testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-10-26T22:16:31 EDT" name="Surefire suite" finished-at="2023-10-26T22:16:32 EDT" duration-ms="1349">
+  <suite started-at="2023-10-26T22:28:59 EDT" name="Surefire suite" finished-at="2023-10-26T22:29:01 EDT" duration-ms="1261">
     <groups>
     </groups>
-    <test started-at="2023-10-26T22:16:31 EDT" name="Surefire test" finished-at="2023-10-26T22:16:32 EDT" duration-ms="1349">
+    <test started-at="2023-10-26T22:28:59 EDT" name="Surefire test" finished-at="2023-10-26T22:29:01 EDT" duration-ms="1261">
       <class name="suite1.SampleSiteTest">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:suite1.SampleSiteTest@78aab498]" started-at="2023-10-26T22:16:31 EDT" name="setUp" finished-at="2023-10-26T22:16:32 EDT" duration-ms="1320" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:suite1.SampleSiteTest@4466af20]" started-at="2023-10-26T22:29:00 EDT" name="setUp" finished-at="2023-10-26T22:29:01 EDT" duration-ms="1239" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="testSiteHeader2()[pri:0, instance:suite1.SampleSiteTest@78aab498]" started-at="2023-10-26T22:16:32 EDT" name="testSiteHeader2" finished-at="2023-10-26T22:16:32 EDT" duration-ms="1" status="FAIL">
+        <test-method signature="testSiteHeader2()[pri:0, instance:suite1.SampleSiteTest@4466af20]" started-at="2023-10-26T22:29:01 EDT" name="testSiteHeader2" finished-at="2023-10-26T22:29:01 EDT" duration-ms="2" status="FAIL">
           <exception class="java.lang.NullPointerException">
             <message>
               <![CDATA[Cannot invoke "org.openqa.selenium.WebDriver.get(String)" because "this.driver" is null]]>
@@ -56,7 +56,7 @@ at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testSiteHeader2 -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:suite1.SampleSiteTest@78aab498]" started-at="2023-10-26T22:16:32 EDT" name="tearDown" finished-at="2023-10-26T22:16:32 EDT" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:suite1.SampleSiteTest@4466af20]" started-at="2023-10-26T22:29:01 EDT" name="tearDown" finished-at="2023-10-26T22:29:01 EDT" duration-ms="1" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
