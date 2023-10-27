@@ -39,7 +39,8 @@ public class TestBase {
 
                 try {
                     // Define URL of the remote WebDriver (your Docker container with Selenium standalone server)
-                    URI uri = new URI("http://172.31.26.241:4444/wd/hub");
+                	URI uri = new URI("http://selenium-container:4444/wd/hub");
+
                     // Convert URI to URL
                     URL remoteAddress = uri.toURL();
 
