@@ -37,9 +37,10 @@ public class TestBase {
                 int timeoutInSeconds = 10;
                 options.setCapability("se:timeout", Map.of("script", timeoutInSeconds * 1000));
 
-                try {
+                try { //http://172.17.0.2:4444
+
                     // Define URL of the remote WebDriver (your Docker container with Selenium standalone server)
-                	URI uri = new URI("http://selenium-container:4444/wd/hub");
+                	URI uri = new URI("http://172.17.0.2:4444/wd/hub");
 
                     // Convert URI to URL
                     URL remoteAddress = uri.toURL();
