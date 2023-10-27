@@ -1,4 +1,5 @@
 package util;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 import util.TestUtil;
 
@@ -21,14 +22,10 @@ public class TestBase {
 
     @BeforeMethod
     public void setUp() {
-    	
-        WebDriver driver = null;
-        TestUtil testUtil;
         String os = System.getProperty("os.name").toLowerCase(); // Identify OS
 
         try {
             if (os.contains("linux")) {
-            	
                 // Setup for Linux and Docker
                 ChromeOptions options = new ChromeOptions();
                 options.addArguments("--headless");
@@ -37,10 +34,9 @@ public class TestBase {
                 int timeoutInSeconds = 10;
                 options.setCapability("se:timeout", Map.of("script", timeoutInSeconds * 1000));
 
-                try { //http://172.17.0.2:4444
-
+                try {
                     // Define URL of the remote WebDriver (your Docker container with Selenium standalone server)
-                	URI uri = new URI("http://172.17.0.2:4444/wd/hub");
+                    URI uri = new URI("http://172.17.0.2:4444/wd/hub");
 
                     // Convert URI to URL
                     URL remoteAddress = uri.toURL();
@@ -54,7 +50,7 @@ public class TestBase {
                     // Handle the exception of a malformed URL
                     e.printStackTrace();
                 }
-      
+
             } else {
                 // Setup for local execution
                 String projectPath = System.getProperty("user.dir");
@@ -73,7 +69,8 @@ public class TestBase {
             // You might want to fail the test, log the error, or have other handling logic.
             return;
         }
-          testUtil = new TestUtil(driver);
+
+        testUtil = new TestUtil(driver);
     }
 
     @AfterMethod
